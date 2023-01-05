@@ -1,5 +1,4 @@
 #!/bin/bash
-docker run --rm --tty --interactive --volume=$(pwd):/app --workdir=/app ubuntu:18.04 /bin/bash
+apt-get update && apt-get install -y git make wget build-essential && wget https://github.com/gohugoio/hugo/releases/download/v0.109.0/hugo_extended_0.109.0_linux-amd64.deb && dpkg -i hugo_extended_0.109.0_linux-amd64.deb 
 
-apt-get update && apt-get install -y hugo make
-make builds
+make build
