@@ -1,12 +1,13 @@
-# Implement the next steps for the actual Go-Hugo website's source code
+# Makefile for Go-Hugo website
+
+# Build the website
 build:
 	@hugo
-
+# Clean up the build directory
 clean:
-	@rm -Rf dist/*
+	rm -rf dist/*
 
+# Create a new blog post
 post:
-	@rm -Rf content/posts/$(POST_NAME).md
-	@hugo new posts/$(POST_NAME).md
-	@sed -i 's/title:.*/title: $(POST_TITLE)/' content/posts/$(POST_NAME).md
-	@sed -i 's/draft:.*/draft: "false"/' content/posts/$(POST_NAME).md
+	hugo new posts/$(POST_NAME).md
+	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
